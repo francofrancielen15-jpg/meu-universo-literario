@@ -1,0 +1,736 @@
+
+/* CONFIGURAÇÕES GERAIS */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background-image: url("../imagens/galaxia.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+
+/* TÍTULO PRINCIPAL */
+
+.topo {
+    text-align: center;
+    padding: 45px 20px 20px;
+}
+
+.topo h1 {
+    font-size: 38px;
+    margin-bottom: 8px;
+    text-shadow: 0 0 18px rgba(180, 150, 255, 0.8);
+}
+
+.topo p {
+    color: #ded7f5;
+}
+
+
+/* JANELINHAS DE INTRODUÇÃO */
+
+.janelas-introducao {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 12px;
+
+    margin: 10px 30px 35px;
+}
+
+
+/* APARÊNCIA DAS JANELAS */
+
+.janela {
+    width: 180px;
+    padding: 13px;
+
+    background: rgba(15, 12, 35, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+
+    color: white;
+
+    transition: all 0.3s ease;
+}
+
+
+/* TÍTULO CLICÁVEL DAS JANELAS */
+
+.janela summary {
+    cursor: pointer;
+    list-style: none;
+
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.janela summary::-webkit-details-marker {
+    display: none;
+}
+
+.janela summary::after {
+    content: " +";
+    color: #d6bdff;
+}
+
+.janela[open] summary::after {
+    content: " −";
+}
+
+
+/* CONTEÚDO EXPANDIDO */
+
+.conteudo-janela {
+    margin-top: 15px;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.conteudo-janela p {
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* CONTEÚDO PRINCIPAL */
+
+.universo {
+    width: 94%;
+    max-width: 1500px;
+    margin: 35px auto 70px;
+
+    text-align: center;
+}
+
+.universo h2 {
+    font-size: 32px;
+    margin-bottom: 8px;
+
+    text-shadow: 0 0 15px rgba(180, 150, 255, 0.8);
+}
+
+.subtitulo {
+    color: #e1d9f5;
+    margin-bottom: 35px;
+}
+
+
+/* AS SEIS COLUNAS */
+
+.colunas-universo {
+    display: grid;
+
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+
+    gap: 12px;
+    align-items: stretch;
+}
+
+
+/* CADA TORRE */
+
+.coluna {
+    min-height: 390px;
+    padding: 16px 9px;
+
+    background: rgba(15, 12, 35, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 14px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    transition: transform 0.3s ease,
+                background 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+
+/* EFEITO AO PASSAR O MOUSE */
+
+.coluna:hover {
+    transform: translateY(-7px);
+
+    background: rgba(50, 35, 85, 0.8);
+
+    box-shadow: 0 0 22px rgba(160, 120, 255, 0.35);
+}
+
+
+/* NÚMERO DAS COLUNAS */
+
+.numero {
+    font-size: 23px;
+    font-weight: bold;
+    color: #c9a9ff;
+
+    margin-bottom: 20px;
+}
+
+
+/* TÍTULOS DAS COLUNAS */
+
+.coluna h3 {
+    font-size: 15px;
+    line-height: 1.5;
+
+    overflow-wrap: anywhere;
+
+    margin: 0;
+    text-align: center;
+}
+
+
+/* LINKS DENTRO DA PRIMEIRA COLUNA */
+
+.links-coluna {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+.links-coluna a {
+    display: block;
+
+    padding: 10px 6px;
+
+    color: white;
+    text-decoration: none;
+
+    font-size: 11px;
+    line-height: 1.4;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+
+    transition: all 0.3s ease;
+}
+
+.links-coluna a:hover {
+    background: rgba(170, 130, 255, 0.3);
+
+    border-color: #c9a9ff;
+
+    box-shadow: 0 0 12px rgba(180, 140, 255, 0.4);
+}
+
+
+/* RODAPÉ */
+
+.rodape {
+    margin-top: 60px;
+    padding: 30px 20px;
+
+    text-align: center;
+
+    background: rgba(10, 8, 25, 0.75);
+    backdrop-filter: blur(10px);
+
+    color: #ded7f5;
+}
+
+.nota-imagens {
+    max-width: 650px;
+    margin: 25px auto 0;
+
+    font-size: 12px;
+    line-height: 1.6;
+    color: #c9c2dc;
+}
+
+
+/* ADAPTAÇÃO PARA TELAS MENORES */
+
+@media (max-width: 1000px) {
+
+    .colunas-universo {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .topo h1 {
+        font-size: 27px;
+    }
+
+    .janelas-introducao {
+        justify-content: center;
+        flex-wrap: wrap;
+
+        margin: 15px;
+    }
+
+    .janela {
+        width: 155px;
+    }
+
+    .colunas-universo {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .coluna {
+        min-height: 300px;
+    }
+
+}
+
+/* PÁGINAS DOS CAPÍTULOS */
+
+.pagina-conteudo {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+.secao-cosmo {
+    margin-bottom: 35px;
+    padding: 30px;
+
+    background: rgba(15, 12, 35, 0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 18px;
+
+    color: white;
+}
+
+.secao-cosmo h2 {
+    color: #d6bdff;
+    margin-top: 0;
+    margin-bottom: 22px;
+}
+
+.secao-cosmo h3 {
+    color: #e7d5ff;
+}
+
+.secao-cosmo p,
+.secao-cosmo li {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.secao-cosmo li {
+    margin-bottom: 7px;
+}
+
+/* ILUSTRAÇÕES */
+
+.ilustracao-cosmica {
+    display: block;
+    width: 100%;
+    max-width: 850px;
+    max-height: 480px;
+
+    object-fit: contain;
+
+    margin: 25px auto;
+    border-radius: 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    box-shadow: 0 0 25px rgba(150, 120, 255, 0.2);
+}
+
+/* LINKS DAS PÁGINAS */
+
+.pagina-conteudo a,
+.topo a,
+.rodape a {
+    color: #d6bdff;
+    text-decoration: none;
+}
+
+.pagina-conteudo a:hover,
+.topo a:hover,
+.rodape a:hover {
+    text-decoration: underline;
+}
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+    .pagina-conteudo {
+        width: 94%;
+    }
+
+    .secao-cosmo {
+        padding: 18px;
+    }
+
+    .secao-cosmo p,
+    .secao-cosmo li {
+        font-size: 14px;
+    }
+}
+
+/* =====================================
+   PÁGINA DOS TRONCOS VERDES
+===================================== */
+
+.pagina-troncos {
+    background:
+        linear-gradient(
+            rgba(3, 19, 12, 0.88),
+            rgba(2, 13, 9, 0.94)
+        ),
+        url("../imagens/tronco-verde-arvore.png");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    color: #e6eadf;
+}
+
+/* Cabeçalho */
+
+.pagina-troncos .topo {
+    text-align: center;
+    padding: 55px 20px 40px;
+
+    background:
+        linear-gradient(
+            rgba(0, 20, 12, 0.65),
+            rgba(0, 20, 12, 0.85)
+        );
+    
+    border-bottom: 1px solid #9c9b54;
+}
+
+.pagina-troncos .topo h1 {
+    color: #c5d99a;
+    font-size: 2.8rem;
+    margin-bottom: 12px;
+    text-shadow: 0 0 18px rgba(75, 160, 85, 0.4);
+}
+
+.pagina-troncos .topo p {
+    color: #d5dfc8;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+.pagina-troncos a {
+    color: #c7d99b;
+    transition: color 0.3s ease;
+}
+
+.pagina-troncos a:hover {
+    color: #ffffff;
+}
+
+/* Área principal */
+
+.pagina-troncos .pagina-conteudo {
+    width: min(1100px, 92%);
+    margin: 35px auto;
+}
+
+/* Seções */
+
+.pagina-troncos .secao-cosmo {
+    background: rgba(3, 29, 18, 0.86);
+
+    border: 1px solid rgba(160, 177, 93, 0.55);
+    border-radius: 16px;
+
+    padding: 28px;
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.3),
+        inset 0 0 25px rgba(38, 95, 55, 0.12);
+}
+
+.pagina-troncos .secao-cosmo h2 {
+    color: #c5d99a;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+
+    border-bottom: 1px solid rgba(166, 181, 104, 0.35);
+    padding-bottom: 12px;
+}
+
+.pagina-troncos .secao-cosmo h3 {
+    color: #a9c879;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.pagina-troncos .secao-cosmo p {
+    color: #e0e7dc;
+    line-height: 1.8;
+    margin-bottom: 16px;
+    text-align: justify;
+}
+
+/* Ilustrações */
+
+.pagina-troncos .ilustracao-cosmica {
+    display: block;
+
+    width: 100%;
+    max-width: 850px;
+    max-height: 520px;
+
+    object-fit: cover;
+
+    margin: 25px auto;
+    border-radius: 12px;
+
+    border: 1px solid rgba(166, 190, 110, 0.5);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.4),
+        0 0 18px rgba(45, 120, 65, 0.15);
+}
+
+/* Rodapé */
+
+.pagina-troncos .rodape {
+    text-align: center;
+    padding: 35px 20px;
+
+    background: rgba(1, 17, 10, 0.9);
+
+    border-top: 1px solid rgba(166, 181, 104, 0.45);
+
+    color: #c5d99a;
+}
+
+.pagina-troncos .rodape p {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+/* Adaptação para celulares */
+
+@media (max-width: 700px) {
+
+    .pagina-troncos .topo h1 {
+        font-size: 2rem;
+    }
+
+    .pagina-troncos .pagina-conteudo {
+        width: 94%;
+    }
+
+    .pagina-troncos .secao-cosmo {
+        padding: 18px;
+    }
+
+    .pagina-troncos .secao-cosmo h2 {
+        font-size: 1.45rem;
+    }
+
+    .pagina-troncos .secao-cosmo p {
+        text-align: left;
+    }
+
+    .pagina-troncos .ilustracao-cosmica {
+        max-height: 350px;
+    }
+}
+
+/* ==================================
+   PÁGINA: DESTRUIÇÃO DA PANGEIA
+================================== */
+
+.pagina-destruicao {
+    background:
+        linear-gradient(
+            rgba(10, 5, 24, 0.88),
+            rgba(5, 8, 25, 0.94)
+        ),
+        url("../imagens/destruicao-grande-pangeia.png");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #eee8fa;
+}
+
+/* CABEÇALHO */
+
+.pagina-destruicao .topo {
+    text-align: center;
+    padding: 55px 20px 40px;
+
+    background: linear-gradient(
+        rgba(19, 9, 39, 0.65),
+        rgba(10, 8, 30, 0.88)
+    );
+
+    border-bottom: 1px solid #9c82c7;
+}
+
+.pagina-destruicao .topo h1 {
+    color: #d8c1ff;
+    font-size: 2.8rem;
+    margin-bottom: 12px;
+    text-shadow: 0 0 18px rgba(160, 110, 255, 0.5);
+}
+
+.pagina-destruicao .topo p {
+    color: #ddd2ee;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+/* LINKS */
+
+.pagina-destruicao a {
+    color: #d3baff;
+    transition: color 0.3s ease;
+}
+
+.pagina-destruicao a:hover {
+    color: #ffffff;
+}
+
+/* CONTEÚDO */
+
+.pagina-destruicao .pagina-conteudo {
+    width: min(1100px, 92%);
+    margin: 35px auto;
+}
+
+/* SEÇÕES */
+
+.pagina-destruicao .secao-cosmo {
+    background: rgba(18, 12, 39, 0.88);
+    border: 1px solid rgba(160, 130, 200, 0.55);
+    border-radius: 16px;
+
+    padding: 28px;
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.35),
+        inset 0 0 25px rgba(100, 65, 160, 0.12);
+}
+
+.pagina-destruicao .secao-cosmo h2 {
+    color: #d8c1ff;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+
+    border-bottom: 1px solid rgba(180, 150, 220, 0.35);
+    padding-bottom: 12px;
+}
+
+.pagina-destruicao .secao-cosmo p {
+    color: #e8e0f2;
+    line-height: 1.8;
+    margin-bottom: 16px;
+    text-align: justify;
+}
+
+.pagina-destruicao .secao-cosmo li {
+    color: #e8e0f2;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+/* IMAGENS */
+
+.pagina-destruicao .ilustracao-cosmica {
+    display: block;
+
+    width: 100%;
+    max-width: 850px;
+    max-height: 520px;
+
+    object-fit: cover;
+
+    margin: 25px auto;
+    border-radius: 12px;
+
+    border: 1px solid rgba(180, 150, 220, 0.5);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.4),
+        0 0 18px rgba(130, 90, 200, 0.2);
+}
+
+/* RODAPÉ */
+
+.pagina-destruicao .rodape {
+    text-align: center;
+    padding: 35px 20px;
+
+    background: rgba(10, 7, 25, 0.92);
+    border-top: 1px solid rgba(160, 130, 200, 0.45);
+
+    color: #d8c1ff;
+}
+
+.pagina-destruicao .rodape p {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+/* TELAS MENORES */
+
+@media (max-width: 700px) {
+
+    .pagina-destruicao .topo h1 {
+        font-size: 2rem;
+    }
+
+    .pagina-destruicao .pagina-conteudo {
+        width: 94%;
+    }
+
+    .pagina-destruicao .secao-cosmo {
+        padding: 18px;
+    }
+
+    .pagina-destruicao .secao-cosmo h2 {
+        font-size: 1.45rem;
+    }
+
+    .pagina-destruicao .secao-cosmo p {
+        text-align: left;
+    }
+
+    .pagina-destruicao .ilustracao-cosmica {
+        max-height: 350px;
+    }
+}
+
